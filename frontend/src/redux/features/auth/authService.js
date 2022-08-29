@@ -1,6 +1,6 @@
 //strictly for just making https requests and setting any data in local storage
 import axios from 'axios';
-const API_URL = 'http://localhost:8000/user/'
+const API_URL = 'https://tour-application-backend.herokuapp.com//user/'
 
 
 //register user

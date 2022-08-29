@@ -40,10 +40,10 @@ function Admin() {
     return (
         <>
         <div style={{ marginTop: "7rem" }}>
-       <h2>Welcome {user ? user.result.name : ""} (Admin)</h2>
+       <h2>Welcome {user && user.result.name} (Admin)</h2>
        {tours.length === 0 ? (
-          <MDBTypography className="text-center mb-0" tag="h2">
-            No Tours Found
+          <MDBTypography className="text-center mb-0" tag="h4">
+            No one has registered yet
           </MDBTypography>
         ):(
             <table class="table table-striped table-responsive">

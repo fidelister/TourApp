@@ -18,7 +18,8 @@ const Home = () => {
   }, [currentPage]);
 
 
-  useEffect(() => {
+  useEffect((user) => {
+    // {console.log(user)}
     if (user ? user.result.roles : "" === "admin") {
       navigate("/admin")
     }

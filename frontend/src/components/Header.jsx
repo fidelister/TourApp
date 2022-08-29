@@ -24,7 +24,7 @@ function Header() {
   const dispatch = useDispatch()
   const navigate = useNavigate()
   const { user } = useSelector((state) => state.auth);
-  // console.log(user)
+  console.log(user)
   const onLogout = () => {
     if (user ? user.result.roles : "" === "admin") {
       dispatch(logout())
@@ -46,14 +46,18 @@ function Header() {
       navigate('/')
     }
   }
-  useEffect(() => {
+  useEffect((user) => {
     if (user ? user.result.roles : "" === "admin") {
       setName(`Logged in as admin (${user ? user.result.name : ""})`)
     } else {
       setName(`welcome ${user ? user.result.name : ""}`)
     }
-  }, [user])
+  }, [])
 
+  // if(!user) return <></>
+
+  // console.log(user)
+ 
   return (
     <>
       <MDBNavbar fixed="top" expand="lg" style={{ backgroundColor: "#f0e6ea" }}>
@@ -80,7 +84,7 @@ function Header() {
                   <p className="header-text">Home</p>
                 </MDBNavbarLink>
               </MDBNavbarItem>
-              {user && user.result.roles === "admin" ? (
+               {user && user.result.roles === "admin" ? (
                 <>
 
                 </>
@@ -97,7 +101,7 @@ function Header() {
                     </MDBNavbarLink>
                   </MDBNavbarItem>
                 </>
-              )}
+              )} 
               {user && user.result._id ? (
                 <>
                   <MDBNavbarItem>
@@ -117,7 +121,7 @@ function Header() {
                     <p className="header-text">Login</p>
                   </MDBNavbarLink>
                 </MDBNavbarItem>
-              )}
+              )} 
             </MDBNavbarNav>
             {
               user && user.result.roles === "admin" ? (
@@ -136,7 +140,7 @@ function Header() {
                   </div>
                 </form>
               )
-            }
+            } 
           </MDBCollapse>
         </MDBContainer>
       </MDBNavbar>

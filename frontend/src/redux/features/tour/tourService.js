@@ -1,5 +1,5 @@
 import axios from 'axios';
-const API_URL = 'http://localhost:8000/user/tour/';
+const API_URL = 'https://tour-application-backend.herokuapp.com//user/tour/';
 
 //create new tour
 const createTour = async (tourData, token) => {
